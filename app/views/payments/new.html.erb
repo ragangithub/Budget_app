@@ -1,0 +1,38 @@
+<%= render 'shared/navbar', back_link: category_payments_path, title: "New Transaction" %>
+
+<%= form_with model: @transaction, url: category_payments_path, method: :post, scope: :transaction do |form| %>
+  <h1 class="form_title">Add a new Transaction</h1>
+
+<div class="form-fields">
+  <div class="field">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-control" %>
+    <% if @transaction.errors.has_key?(:name) %>
+        <p class="error-message"><%= @transaction.errors[:name].first %></p>
+      <% end %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amount, class: "form-label" %>
+    <%= form.number_field :amount, class: "form-control" %>
+    <% if @transaction.errors.has_key?(:amount) %>
+        <p class="error-message"><%= @transaction.errors[:amount].first %></p>
+      <% end %>
+  </div>
+
+  <div class="field">
+    <%= form.label :categories, class: "form-label" %>
+    <%= form.collection_select :category, @categories, :id, :name, required: true, prompt: true,class: 'form-select', aria_label: "Disabled select example"  %>
+   
+    <% if @transaction.errors.has_key?(:category) %>
+        <p class="error-message"><%= @transaction.errors[:category].first %></p>
+      <% end %>
+  </div>
+  </div>
+
+  <div class='form-container'>
+   <%= form.submit "Save", class: "submit-btn1" %>
+  
+  </div>
+
+<% end %>
