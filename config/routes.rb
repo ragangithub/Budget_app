@@ -8,10 +8,12 @@ Rails.application.routes.draw do
   devise_scope :user do
     authenticated :user do
       root to: 'categories#index', as: :authenticated_root
-    end
 
-    
-  end
+      unauthenticated :user do
+        root to: 'splash#splash', as: :unauthenticated_root
+      end
+    end
+end
 
   resources :categories, only: %i[index new create destroy] do
     resources :payments, only: %i[index new create]
