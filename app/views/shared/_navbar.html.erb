@@ -36,12 +36,8 @@
         <span>User: <%= current_user.name.upcase %></span>
       </div>
       <div class="actions">
-      <i class="fa fa-cogs" aria-hidden="true"> <%= link_to "Account Settings", edit_user_registration_path, class: "action" %></i>
+     <i class="fa fa-plus-circle" aria-hidden="true"> <%= link_to "Create Group", new_category_path, class: "action" %></i>
         <hr>
-        <i class="fa fa-plus-circle" aria-hidden="true"> <%= link_to "Create Group", new_category_path, class: "action" %></i>
-        <hr>
-       
-        <i class="fa fa-user" aria-hidden="true"> <a href="#" target="_blank" class="action">Author Profile</a></i>
       </div>
     </div>
   </div>
