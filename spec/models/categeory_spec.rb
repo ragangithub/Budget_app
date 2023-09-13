@@ -13,7 +13,7 @@ RSpec.describe Category, type: :model do
     end
   end
 
-it 'is invalid without a name' do
+  it 'is invalid without a name' do
     group = Category.new(
       icon: 'https://example.com/icon.png'
     )
@@ -27,7 +27,7 @@ it 'is invalid without a name' do
     expect(group).to_not be_valid
   end
 
-describe '#total_amount' do
+  describe '#total_amount' do
     it 'returns the sum of record amounts for the group' do
       user = User.create(name: 'John Doe', email: 'john@example.com', password: 'password123')
       group = Category.create(name: 'Grocery Shopping', icon: 'https://example.com/icon.png', user:)
