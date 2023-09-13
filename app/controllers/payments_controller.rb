@@ -12,14 +12,21 @@ class PaymentsController < ApplicationController
   def create
     payment = Payment.create(name: params[:transaction][:name], amount: params[:transaction][:amount],
                              author: current_user)
-    category = Category.find(params[:transaction][:category])
 
-    @transaction = CategoryPayment.new(payment:, category:)
+    category_ids = params[:transaction][:category_ids] || [] # Handle the case when no categories are selected
 
-    if @transaction.save
+    category_ids.each do |category_id|
+      category = Category.find_by(id: category_id) # Use find_by to avoid raising an exception if category is not found
+      next unless category
+
+      CategoryPayment.create(payment:, category:)
+    end
+
+    if payment.valid?
       redirect_to category_payments_path(params[:category_id]), notice: 'Transaction was successfully created.'
     else
       @categories = current_user.categories.all
+      @transaction = payment # Assign the payment to @transaction for rendering the form with errors
 
       render :new, status: 422
     end

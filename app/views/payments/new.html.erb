@@ -21,14 +21,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :categories, class: "form-label" %>
-    <%= form.collection_select :category, @categories, :id, :name, required: true, prompt: true,class: 'form-select', aria_label: "Disabled select example"  %>
+  <%= form.label :categories, class: "form-label" %>
+  <%= form.collection_select :category_ids, @categories, :id, :name, {}, { multiple: true, class: 'form-select', required: true, aria_label: "Disabled select example" } %>
    
-    <% if @transaction.errors.has_key?(:category) %>
-        <p class="error-message"><%= @transaction.errors[:category].first %></p>
-      <% end %>
-  </div>
-  </div>
+  <% if @transaction.errors.has_key?(:category_ids) %>
+    <p class="error-message"><%= @transaction.errors[:category_ids].first %></p>
+  <% end %>
+</div>
 
   <div class='form-container'>
    <%= form.submit "Save", class: "submit-btn1" %>
