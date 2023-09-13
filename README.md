@@ -30,7 +30,7 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 i-budget <a name="about-project"></a>
+# 📖 budget_app <a name="about-project"></a>
 
 Budget App is a mobile web application designed for efficient budget management. Users can register, log in, add transactions to categories, and monitor their expenses. With secure authentication, PostgreSQL database, and comprehensive testing, this app ensures seamless and secure budget tracking.
 
@@ -68,7 +68,7 @@ Budget App is a mobile web application designed for efficient budget management.
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-<!-- - [Live Demo Link]() -->
+- [Live Demo Link](https://budget-kv71.onrender.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
