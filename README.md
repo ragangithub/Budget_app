@@ -98,7 +98,7 @@ Clone this repository to your desired folder:
 Install this project with:
 
 ```sh
-  cd i-budget
+  cd Budget_app
   bundle install
 ```
 
